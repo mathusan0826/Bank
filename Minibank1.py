@@ -75,7 +75,7 @@ def create_account():
 
         balance[customer_id]=[f"{datetime.datetime.now()} |Balance:Rs{starting_balance}"]
 
-        with open("User.txt" 'a') as f:
+        with open("User.txt", 'a') as f:
             f.write(f"{customer_id}\t{name}\tRs{starting_balance}\n")
 
         with open("Bankaccount.txt",'a') as f:
@@ -153,6 +153,8 @@ def show_transaction_history():
 
     except ValueError:
         print("Invalid input.")
+
+
 
 #task 7 show balance History
 def show_balance_history():

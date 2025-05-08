@@ -1,1 +1,2 @@
 1	jakan	Rs5000.0
+1	nixan	Rs9000.0
