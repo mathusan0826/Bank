@@ -16,7 +16,7 @@ else:
     print("Wrong username or password please Try again.")
     exit()
 
-#Data Store
+#Data Store (dictnory)
 customers = {}        #{customer_id: customer_data}
 transaction ={}      #{customer_id :[list of transactions]}
 balance ={}          #{customer_id :[balance history]}
@@ -29,6 +29,7 @@ for filename in ["Customer.txt",
                  ]:
     if not os.path.exists(filename):
         open(filename, 'w').close()
+
 
 #functions Starting      
 #Task 1 Register new customer
@@ -166,32 +167,32 @@ def show_balance_history():
     except ValueError:
         print("Invalid input.") 
 
-#task 8   
-def delete_account():
-    try:
-        customer_id = int(input("\n Customer ID to delete: "))
-        if customer_id in customers:
-            confirm = input(f"Are you sure you want to delete account for {customers[customer_id]['name']}? (yes/no): ")
-            if confirm.lower() == "yes":
-                del customers[customer_id]
-                transaction.pop(customer_id, None)
-                balance.pop(customer_id, None)
+# #task 8   
+# def delete_account():
+#     try:
+#         customer_id = int(input("\n Customer ID to delete: "))
+#         if customer_id in customers:
+#             confirm = input(f"Are you sure you want to delete account for {customers[customer_id]['name']}? (yes/no): ")
+#             if confirm.lower() == "yes":
+#                 del customers[customer_id]
+#                 transaction.pop(customer_id, None)
+#                 balance.pop(customer_id, None)
 
-                with open("User.txt", 'w') as f:
-                    for cid, data in customers.items():
-                        f.write(f"{cid}\t{data['name']}\t₹{data['balance']}\n")
+#                 with open("User.txt", 'w') as f:
+#                     for cid, data in customers.items():
+#                         f.write(f"{cid}\t{data['name']}\t₹{data['balance']}\n")
 
-                with open("Bankaccount.txt", 'w') as f:
-                    for cid, data in customers.items():
-                        f.write(f"{cid}\t{data['name']}\t{data['account_id']}\t₹{data['balance']}\n")
+#                 with open("Bankaccount.txt", 'w') as f:
+#                     for cid, data in customers.items():
+#                         f.write(f"{cid}\t{data['name']}\t{data['account_id']}\t₹{data['balance']}\n")
 
-                print(" Account deleted.")
-            else:
-                print("Deletion cancelled.")
-        else:
-            print(" Customer ID not found.")
-    except ValueError:
-        print(" Invalid input.")
+#                 print(" Account deleted.")
+#             else:
+#                 print("Deletion cancelled.")
+#         else:
+#             print(" Customer ID not found.")
+#     except ValueError:
+#         print(" Invalid input.")
     
 
 # *****Main Menu*****
@@ -223,8 +224,8 @@ while True:
         show_transaction_history()
     elif user_choice == "7":
         show_balance_history()
-    elif user_choice == "8":
-        delete_account()
+    # elif user_choice == "8":
+    #     delete_account()
     elif user_choice == "9":
         print(" Goodbye! Thanks for using the ATM System.")
         break

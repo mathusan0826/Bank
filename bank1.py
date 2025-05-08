@@ -1,3 +1,6 @@
+  
+
+
 admin_username="Mathusan"
 admin_password="0826"
 while True:
@@ -48,8 +51,12 @@ while True:
         user_pass=int("enter your password:")
         deposit_money()
     elif user_choice=="4":
+          user_id=int("enter your id:")
+        user_pass=int("enter your password:")
         withdraw_money()
     elif user_choice=="5":
+          user_id=int("enter your id:")
+        user_pass=int("enter your password:")
         check_balance()
     elif user_choice=="6":
         view_transation()
